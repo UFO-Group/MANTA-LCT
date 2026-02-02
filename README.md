@@ -2,15 +2,15 @@
 This package implements a Local Control Theory (LCT) driven molecular dynamics workflow for optical-field-controlled nonadiabatic simulations. It currently supports two common control scenarios: IR (vibrational control) and UV (electronic-state control). 
 ## Features
 
-### LCT-driven dynamics workflows for IR (vibrational control) and UV (electronic-state control)
+### 1. LCT-driven dynamics workflows for IR (vibrational control) and UV (electronic-state control)
 
-### Interactive setup script to generate input files and folder structures
+### 2. Interactive setup script to generate input files and folder structures
 
-### Automatic creation of trajectory directories for ensemble simulations
+### 3. Automatic creation of trajectory directories for ensemble simulations
 
-### Clear separation between setup/preparation and dynamics execution
+### 4. Clear separation between setup/preparation and dynamics execution
 
-### Compatible with external tools for initial condition generation and topology preparation
+### 5. Compatible with external tools for initial condition generation and topology preparation
 
 ## Directory Structure
 
@@ -42,11 +42,11 @@ Each TRAJ_xxxx directory corresponds to one independent trajectory.
 
 ## Installation / Requirements
 
-### Python
+### 1. Python
 
 Python ≥ 3.8
 
-### Required Python packages
+### 2. Required Python packages
 
 numpy
 
@@ -56,21 +56,24 @@ schnetpack (required for preparing model/database-related files)
 
 Note: depending on your environment, you may also need additional packages used by your PES/Dipole model loading scripts.
 
-### External software
+### 3. External software
 
 SHARC: required to generate the initconds file using SHARC’s wigner.py.
+
+ORCA: required to calculate the topology data.
 
 ## Quick Start (Recommended)
 
 The recommended workflow is:
 
-### Prepare input data (initial conditions + topology + database-derived .pth)
+### 1. Prepare input data (initial conditions + topology + database-derived .pth)
 
-### Run the interactive setup script to generate lct.in, paths.cfg, submission script, and trajectory folders
+### 2. Run the interactive setup script to generate lct.in, paths.cfg, submission script, and trajectory folders
 
-### Submit/run dynamics using the generated script
+### 3. Submit/run dynamics using the generated script
 
 python lct_setup.py
+
 bash submit.sh
 
 ## Interactive Setup Script
@@ -93,7 +96,7 @@ It will:
 
 ## Input Files Explanation
 
-### lct.in
+### 1. lct.in
 
 The main simulation control file.
 
@@ -123,7 +126,7 @@ id_react : reactive/vibrational mode index
 
 These IR-only parameters are not present in UV mode.
 
-### paths.in
+### 2. paths.in
 
 Defines file system locations required by the simulation:
 
@@ -143,7 +146,7 @@ savedir : main output directory (where TRAJ_xxxx folders will be created)
 
 Before running lct_setup.py, you should prepare the following:
 
-### Generate initial conditions (initconds) using SHARC
+### 1. Generate initial conditions (initconds) using SHARC
 
 Use SHARC’s Wigner sampling script wigner.py to generate the initconds file containing initial geometries and velocities.
 
@@ -159,7 +162,7 @@ Output example:
 
 initconds
 
-### Generate topology file (topol.dat) using ORCA-based workflow
+### 2. Generate topology file (topol.dat) using ORCA-based workflow
 
 A topology file (bonds/angles/dihedrals) is required by the dynamics code.
 
@@ -174,7 +177,7 @@ Output example:
 
 topol.dat
 
-### Build the .pth topology database from SchNarc DB
+### 3. Build the .pth topology database from SchNarc DB
 
 You have:
 
@@ -190,12 +193,12 @@ initdb_dict_200.pth
 
 The IR and UV workflows use different runner scripts.
 
-IR mode (vibrational control)
+1. IR mode (vibrational control)
 
 python run_dynamics_IR.py
 
 
-UV mode (electronic-state control)
+2. UV mode (electronic-state control)
 
 python run_dynamics_UV.py
 
