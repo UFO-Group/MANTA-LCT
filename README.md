@@ -199,7 +199,7 @@ python run_dynamics_IR.py
 
 
 2. UV mode (electronic-state control)
-
+```python 
 python run_dynamics_UV.py
 
 
@@ -218,51 +218,5 @@ ORCA-based workflow generates topology (topol.dat)
 SchNarc DB workflow generates .pth configuration (initdb_dict_*.pth)
 
 lct_setup.py is the recommended place to integrate automated preparation steps (e.g., running run_orca.py).
-
-
-```mermaid
-flowchart TD
-
-    %% =========================
-    %% Phase 1: Preparation
-    %% =========================
-    A1[Quantum Chemistry\nFrequency Calculation\n(freq.molden)]
-    A2[SHARC wigner.py\nGenerate initconds]
-    A3[ORCA-based Workflow\nrun_orca.py\nGenerate topol.dat]
-    A4[SchNarc Database\nmake_pthfile.ipynb\nGenerate .pth]
-
-    %% =========================
-    %% Phase 2: Setup
-    %% =========================
-    B1[lct_setup.py\nInteractive Setup]
-    B2{Select LCT Mode}
-
-    %% =========================
-    %% Phase 3: Dynamics
-    %% =========================
-    C1[IR Mode\nVibrational Control\nrun_dynamics_IR.py]
-    C2[UV Mode\nElectronic-State Control\nrun_dynamics_UV.py]
-
-    %% =========================
-    %% Phase 4: Output
-    %% =========================
-    D1[LCT_IR/\nTRAJ_0001 ... TRAJ_N]
-    D2[LCT_UV/\nTRAJ_0001 ... TRAJ_N]
-
-    %% =========================
-    %% Connections
-    %% =========================
-    A1 --> A2
-    A2 --> B1
-    A3 --> B1
-    A4 --> B1
-
-    B1 --> B2
-    B2 -->|IR| C1
-    B2 -->|UV| C2
-
-    C1 --> D1
-    C2 --> D2
-```
 
 
