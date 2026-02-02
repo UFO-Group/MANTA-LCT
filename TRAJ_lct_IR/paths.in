@@ -1,0 +1,8 @@
+initconds_path   "./Initconds"
+topology_file    "./Initconds/initdb_dict_300.pth"
+topol_file       "./Initconds/topol.dat"
+pes_model_root   "./Model/PES"
+dipole_model_dir "./odel/Dipole"
+
+savedir          "./TRAJ_test"
+
