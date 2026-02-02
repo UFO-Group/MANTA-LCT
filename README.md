@@ -8,7 +8,7 @@ This package implements a Local Control Theory (LCT) driven molecular dynamics w
 
 ### 3. Automatic creation of trajectory directories for ensemble simulations
 
-### 4. Clear separation between setup/preparation and dynamics execution
+### 4. Clear separation between setup/preparation and dynamics execution 
 
 ### 5. Compatible with external tools for initial condition generation and topology preparation
 
@@ -82,7 +82,7 @@ bash submit.sh
 
 The setup script is:
 ```python
-lct_setup.py (renamed from make_lct_inputs.py)
+python lct_setup.py (renamed from make_lct_inputs.py)
 ```
 It will:
 
