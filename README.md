@@ -43,15 +43,15 @@ Each TRAJ_xxxx directory corresponds to one independent trajectory.
 ## Installation / Requirements
 
 ### 1. Python
-
+```python
 Python ≥ 3.8
-
+```
 ### 2. Required Python packages
-
+```python
 numpy
 
 torch
-
+```
 schnetpack (required for preparing model/database-related files)
 
 Note: depending on your environment, you may also need additional packages used by your PES/Dipole model loading scripts.
@@ -71,17 +71,19 @@ The recommended workflow is:
 ### 2. Run the interactive setup script to generate lct.in, paths.cfg, submission script, and trajectory folders
 
 ### 3. Submit/run dynamics using the generated script
-
+```python
 python lct_setup.py
-
+```
+```bash
 bash submit.sh
+```
 
 ## Interactive Setup Script
 
 The setup script is:
-
+```python
 lct_setup.py (renamed from make_lct_inputs.py)
-
+```
 It will:
 
 1. Ask you to choose the control scenario (vibrational control and electronic-state control)
@@ -101,7 +103,7 @@ It will:
 The main simulation control file.
 
 Common parameters:
-
+```bash
 natoms : number of atoms
 
 ntraj : number of trajectories
@@ -117,19 +119,19 @@ nsteps : number of propagation steps
 scale_factor : field scaling factor
 
 lct : control scenario (IR or UV)
-
+```
 IR-only parameters (vibrational control):
-
+```bash
 actstate : active electronic state
 
 id_react : reactive/vibrational mode index
-
+```
 These IR-only parameters are not present in UV mode.
 
 ### 2. paths.in
 
 Defines file system locations required by the simulation:
-
+```bash
 initconds_path : directory containing initial conditions and related files
 
 topology_file : topology database file (.pth)
@@ -141,7 +143,7 @@ pes_model_root : PES model directory
 dipole_model_dir : dipole model directory
 
 savedir : main output directory (where TRAJ_xxxx folders will be created)
-
+```
 ## Preparing Required Files
 
 Before running lct_setup.py, you should prepare the following:
@@ -151,9 +153,9 @@ Before running lct_setup.py, you should prepare the following:
 Use SHARC’s Wigner sampling script wigner.py to generate the initconds file containing initial geometries and velocities.
 
 Example command:
-
+```python
 $SHARC/wigner.py -n 200 freq.molden
-
+```
 -n 200 specifies the number of initial conditions to generate
 
 freq.molden is the frequency file calculated by quantum chemistry software
@@ -194,14 +196,14 @@ initdb_dict_200.pth
 The IR and UV workflows use different runner scripts.
 
 1. IR mode (vibrational control)
-
+```python
 python run_dynamics_IR.py
-
+```
 
 2. UV mode (electronic-state control)
 ```python 
 python run_dynamics_UV.py
-
+```
 
 lct_setup.py generates submit.sh with the correct runner by mode.
 
