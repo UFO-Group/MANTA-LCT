@@ -220,6 +220,7 @@ SchNarc DB workflow generates .pth configuration (initdb_dict_*.pth)
 lct_setup.py is the recommended place to integrate automated preparation steps (e.g., running run_orca.py).
 
 
+```mermaid
 flowchart TD
 
     %% =========================
@@ -262,4 +263,6 @@ flowchart TD
 
     C1 --> D1
     C2 --> D2
+...
+
 
