@@ -1,0 +1,23 @@
+# Based on the observed Linux pysharc environment; not yet clean-install tested.
+name: dbo-lct
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.9.22
+  - pytorch=1.13.1
+  - pytorch-cuda=11.7
+  - pip
+  - pip:
+      - numpy==1.21.6
+      - scipy==1.9.3
+      - ase==3.26.0
+      - tqdm==4.67.1
+      - matplotlib==3.5.3
+      - h5py==3.14.0
+      - tensorboardX==2.6.4
+      - PyYAML==6.0.2
+      - scikit-learn==1.6.1
+# Then, from the repository root:
+# python -m pip install --no-deps -r requirements-local.txt

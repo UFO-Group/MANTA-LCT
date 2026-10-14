@@ -1,0 +1,4 @@
+# Install AFTER environment.yml, from the repository root, using --no-deps.
+# These snapshots preserve the server's installed Python package source.
+./third_party/schnetpack-server-snapshot.tar.gz
+./third_party/schnarc-server-snapshot.tar.gz
